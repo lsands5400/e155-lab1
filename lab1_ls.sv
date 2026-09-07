@@ -2,7 +2,7 @@
 // lsands@g.hmc.edu
 // 09-06-2026
 // This is the top module for E155 Lab 1.
-module lab1_ls(input logic reset, 
+module lab1_ls(input logic reset, en,
 				input logic[3:0] s,
 				
 				output logic[2:0] led, 
@@ -18,7 +18,7 @@ module lab1_ls(input logic reset,
 	assign led[1] = s[3] && s[2];
 	
 	// led[2] blinks at 2.4Hz
-	counterLED counter(reset, led[2]);
+	counterLED counter(reset, en, led[2]);
 	
 endmodule
 	
