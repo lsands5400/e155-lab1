@@ -28,12 +28,7 @@ module lab1_led_controller_tb();
     reset = 1;
     #22 reset = 0;
 
-    // for each test case we setup the inputs, wait for the outputs to update,
-    // and then check that the outputs match what we expect using `assert`
-    // in this case, the leds use combinational logic, so we don't *need* to wait
-    // a full clock cycle (#10)
-
-    // example test 1
+    // No LED test
         s = 4'b0000;                // setup inputs
         #10;                        // wait required time
         assert (led == 2'b00)       // check outputs
@@ -41,15 +36,22 @@ module lab1_led_controller_tb();
         else 
             $error("FAILED! The led controller behaves incorrectly at time: %0t.", $time); 
             
-    // test 2
-        s = 4'b0101;
+    // LED[0] test
+        s = 4'b0001;
         #10;
         assert (led == 2'b01)
             $display("PASSED! The led controller behaves as desired at time: %0t.", $time);
         else 
             $error("FAILED! The led controller behaves incorrectly at time: %0t.", $time); 
+
+    // LED[1] test
+        s = 4'b1100;
+        #10;
+        assert (led == 2'b10)
+            $display("PASSED! The led controller behaves as desired at time: %0t.", $time);
+        else 
+            $error("FAILED! The led controller behaves incorrectly at time: %0t.", $time); 
         
-        // ... add the rest of the states you want to check here
 
     #100 $stop;
   end
