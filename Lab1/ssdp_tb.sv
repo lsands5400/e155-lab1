@@ -1,7 +1,9 @@
 // Lindsey Sands
 // lsands@g.hmc.edu
 // 9/7/2026
-// This is the testbench for the seven segment display module. 
+// This is the testbench for the seven segment display module.
+`timescale 1 ns/1 ns
+ 
 module ssdp_tb();
     logic   [3:0]   value;    // 4 input bits
     logic   [6:0]   led; // Seven segment display LEDs

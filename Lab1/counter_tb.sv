@@ -2,6 +2,8 @@
 // lsands@g.hmc.edu
 // 9/7/2026
 // This is the testbench for the counter module.
+`timescale 1 ns/1 ns
+
 module counter_tb();
     logic           clk;    // system clock
     logic           reset;  // active high reset
