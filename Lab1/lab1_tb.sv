@@ -52,6 +52,14 @@ module lab1_led_controller_tb();
         else 
             $error("FAILED! The led controller behaves incorrectly at time: %0t.", $time); 
         
+    // HSOSC test
+    // TODO
+
+    // Seven Segment Display integration test
+    // TODO
+
+    // Counter integration test
+    // TODO
 
     #100 $stop;
   end
