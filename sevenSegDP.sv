@@ -3,11 +3,11 @@
 // 09-06-2026
 // This is the Seven Segment Display module. It takes a binary input value and 
 // outputs the right LED configuration to visually represent the hex digit (0x0-0xF)
-module sevenSegDP(input logic[3:0] value,
+module sevenSegDP(input logic[3:0] s,
 					output logic[6:0] seg);
 	
 	always_comb
-		case(value)
+		case(s)
 			4'b0000: seg = 7'b1000000; // 0
 			4'b0001: seg = 7'b1111001; // 1
 			4'b0010: seg = 7'b0100100; // 2

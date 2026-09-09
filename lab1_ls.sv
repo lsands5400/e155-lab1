@@ -7,6 +7,12 @@ module lab1_ls(input logic reset, en,
 				
 				output logic[2:0] led, 
 				output logic[6:0] seg);
+				
+	logic int_osc;
+				
+	// Internal high-speed oscillator
+	HSOSC #(.CLKHF_DIV(2'b00))
+		clk (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
 	
 	// Seven Segment Display module instantiation
 	sevenSegDP dp(s, seg);
@@ -18,7 +24,7 @@ module lab1_ls(input logic reset, en,
 	assign led[1] = s[3] && s[2];
 	
 	// led[2] blinks at 2.4Hz
-	counterLED counter(reset, en, led[2]);
+	counterLED counter(int_osc, reset, en, led[2]);
 	
 endmodule
 	
